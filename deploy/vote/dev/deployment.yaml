@@ -10,5 +10,6 @@ minReadySeconds: 20
 replicas: 3
 template:
 spec:
-containers: - image: schoolofdevops/vote:v4
+containers:
+- image: schoolofdevops/vote:v4
 name: vote
