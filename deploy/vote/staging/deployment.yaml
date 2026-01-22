@@ -18,4 +18,8 @@ spec:
       containers:
       - image: schoolofdevops/vote:v3
         name: vote
+    resources:
+      requests:
+        cpu: 100m      # Was 500m
+        memory: 256Mi  # Was 2Gi        
 
