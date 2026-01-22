@@ -7,7 +7,7 @@ patchesStrategicMerge:
 namespace: instavote  
 images:
 - name: schoolofdevops/vote
-newTag: v4
+  newTag: v4
 replicas:
 - name: vote
-count: 2
+  count: 2
