@@ -1,14 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-creationTimestamp: null
-labels:
-app: vote
-name: vote
+  creationTimestamp: null
+  name: vote
+  labels:
+    app: vote
 spec:
-replicas: 5
-template:
-spec:
-containers:
-- image: schoolofdevops/vote:v3
-name: vote
+  replicas: 2
+  selector:
+    matchLabels:
+      app: vote
+  template:
+    metadata:
+      labels:
+        app: vote
+    spec:
+      containers:
+      - image: schoolofdevops/vote:v3
+        name: vote
+        envFrom:
+      - configMapRef:
+        name: vote
+        optional: true
+    resources:
+      requests:
+        cpu: 100m      # Was 500m
+        memory: 256Mi  # Was 2Gi        
+
